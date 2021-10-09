@@ -19,4 +19,4 @@ Settings:
 
 
 You can download audio files from: https://everyayah.com/data/status.php 
-download any zip file go to Audio folder where application installed create a new folder with ghare name and place the downloaded file there. 
+download any zip file go to Audio folder where application installed create a new folder with reciter name and place the downloaded file there. 
