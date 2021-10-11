@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+Imports System.Data.OleDb
 Imports WMPLib
 Imports Ionic.Zip
 Imports System.IO
@@ -1040,7 +1040,7 @@ Public Class Mainfrm
         Dim PrevSore, PrevAyeh, CurrentSore, CurrentAyeh, NextSore, NextAyeh As Integer
 
         Threezeros = "000"
-        CurrentSore = SoreList.SelectedIndex + 1
+        CurrentSore = SoreList.SelectedValue
         CurrentAyeh = AyeList.SelectedIndex + 1
         SoreZeros = Threezeros.Substring(0, 3 - CurrentSore.ToString.Length)
         AyeZeros = Threezeros.Substring(0, 3 - CurrentAyeh.ToString.Length)
@@ -1055,7 +1055,7 @@ Public Class Mainfrm
                 MP3FilePath2.Text = Application.StartupPath & "\temp\" & MP3File2.Text & ".mp3"
                 Exit Sub
             Else
-                PrevSore = SoreList.SelectedIndex
+                PrevSore = SoreList.SelectedValue - 1
                 sql = "Select * From TheQuran_List where SorehNo = " & PrevSore
                 maxrow = get_maxrow(sql)
                 If maxrow > 0 Then
@@ -1078,7 +1078,7 @@ Public Class Mainfrm
             If SoreList.SelectedIndex >= 113 Then
                 Exit Sub
             Else
-                NextSore = SoreList.SelectedIndex + 2
+                NextSore = SoreList.SelectedValue + 1
                 SoreZeros = Threezeros.Substring(0, 3 - NextSore.ToString.Length)
                 MP3File2.Text = SoreZeros & NextSore & "001"
                 MP3FilePath2.Text = Application.StartupPath & "\temp\" & MP3File2.Text & ".mp3"
@@ -1103,5 +1103,7 @@ Public Class Mainfrm
         End If
 
     End Sub
+
+
 End Class
 
