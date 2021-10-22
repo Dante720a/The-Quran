@@ -184,8 +184,12 @@ Public Class Form2
         Button8.Enabled = False
         Me.Cursor = Cursors.WaitCursor
 
-Dim i As Double
+        Dim i As Double
         Dim a, b, c As String
+
+
+        Dim Threezeros, SoreZeros, SoreIndx As String
+        Threezeros = "000"
 
         With SoreSelect
             .SelectedIndex = -1 '// -1 Index ='s No.Item.Selected.
@@ -196,7 +200,10 @@ Dim i As Double
                 b = a.Length
                 c = a.Substring(1, a.Length - 1)
 
-                Dim clean As New OleDbCommand("UPDATE TheQuran_List SET note2 = " & i & " WHERE SorehNo = " & c, con)
+                SoreZeros = Threezeros.Substring(0, 3 - i.ToString.Length)
+                SoreIndx = "9" & SoreZeros & i
+                'MsgBox(SoreIndx)
+                Dim clean As New OleDbCommand("UPDATE TheQuran_List SET note2 = " & SoreIndx & " WHERE SorehNo = " & c, con)
                 con.Open()
                 clean.ExecuteNonQuery()
                 con.Close()
