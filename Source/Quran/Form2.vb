@@ -180,7 +180,11 @@ Public Class Form2
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Dim i As Double
+        
+        Button8.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+
+Dim i As Double
         Dim a, b, c As String
 
         With SoreSelect
@@ -203,6 +207,8 @@ Public Class Form2
             reset.ExecuteNonQuery()
             con.Close()
             Me.Close()
+            Me.Cursor = Cursors.Default
+            Button8.Enabled = True
             Exit Sub '// just.because the next 2 lines are not worth reading. :)
 
         End With
