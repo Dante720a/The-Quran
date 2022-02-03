@@ -1055,7 +1055,9 @@ Public Class Mainfrm
         Dim PrevSore, PrevAyeh, CurrentSore, CurrentAyeh, NextSore, NextAyeh As Integer
 
         Threezeros = "000"
-        CurrentSore = SoreList.SelectedIndex + 1
+        'CurrentSore = SoreList.SelectedIndex + 1   ;  this gave problem with faivorate sore list
+
+        CurrentSore = SoreList.SelectedValue
         CurrentAyeh = AyeList.SelectedIndex + 1
         SoreZeros = Threezeros.Substring(0, 3 - CurrentSore.ToString.Length)
         AyeZeros = Threezeros.Substring(0, 3 - CurrentAyeh.ToString.Length)
